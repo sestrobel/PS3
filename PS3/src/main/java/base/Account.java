@@ -6,7 +6,7 @@ public class Account {
 	private int id = 0;
 	private double balance = 0.0;
 	private double annualInterestRate = 0.0;
-	private Date dateCreated; // needs default?
+	private Date dateCreated = new Date(); // needs default?
 
 	public Account() {
 		id = 0;
@@ -50,8 +50,11 @@ public class Account {
 		return this.annualInterestRate / 12;
 	}
 
-	public void withdraw(double amt) {
-		this.balance -= amt;
+	public void withdraw(double amt) throws InsufficientFundsException {
+		if (amt > this.balance )
+			throw new InsufficientFundsException("You don't have that much money!");
+		else
+			this.balance -= amt;
 		return;
 	}
 
