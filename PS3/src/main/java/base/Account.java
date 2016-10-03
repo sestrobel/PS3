@@ -51,10 +51,12 @@ public class Account {
 	}
 
 	public void withdraw(double amt) throws InsufficientFundsException {
-		if (amt > this.balance )
-			throw new InsufficientFundsException("You don't have that much money!");
-		else
-			this.balance -= amt;
+		if (amt > this.balance ) {
+			double needs = amt - this.balance;
+			throw new InsufficientFundsException(needs, "You don't have that much money!");
+		} else {
+			this.balance -= amt; 
+		}
 		return;
 	}
 

@@ -15,7 +15,10 @@ public class Test {
 		try {
 			sample.withdraw(2500.0);
 		} catch (InsufficientFundsException e) {
-			System.out.println("Stop that!");
+			System.out.println("Stop that! You are short $" + e.getAmount());
+			e.printStackTrace();
+		} catch (Exception e) {
+			System.out.println("Idk what happened lol");
 			e.printStackTrace();
 		}
 		sample.deposit(3000.0);
@@ -24,9 +27,12 @@ public class Test {
 		System.out.println("Account Created on: " + sample.getDateCreated());
 		try {
 			sample.withdraw(2000000);
-		} catch (InsufficientFundsException ex) {
-			System.out.println("Quit it, punk!!");
-			ex.printStackTrace();
+		} catch (InsufficientFundsException e) {
+			System.out.println("Quit it, punk! You are short $" + e.getAmount());
+			e.printStackTrace();
+		} catch (Exception e) {
+			System.out.println("Idk what happened lol");
+			e.printStackTrace();
 		}
 
 	}
