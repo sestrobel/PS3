@@ -60,8 +60,12 @@ public class Account {
 		return;
 	}
 
-	public void deposit(double amt) {
-		this.balance += amt;
+	public void deposit(double amt) throws InsufficientFundsException {
+		if (amt > 0) {
+			throw new InsufficientFundsException("Deposit a positive amount!");
+		} else {
+			this.balance += amt; 
+		}
 		return;
 	}
 }

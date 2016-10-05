@@ -21,7 +21,12 @@ public class Test {
 			System.out.println("Idk what happened lol");
 			e.printStackTrace();
 		}
-		sample.deposit(3000.0);
+		try {
+			sample.deposit(3000.0);
+		} catch (InsufficientFundsException e1) {
+			System.out.println("Stop that! Deposit something more than zero!");
+			e1.printStackTrace();
+		}
 		System.out.println("Balance: " + money.format(sample.getBalance()));
 		System.out.println("Monthly Interest Rate: " + sample.getMonthlyInterestRate() * 100 + "%");
 		System.out.println("Account Created on: " + sample.getDateCreated());
