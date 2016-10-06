@@ -61,7 +61,7 @@ public class Account {
 	}
 
 	public void deposit(double amt) throws InsufficientFundsException {
-		if (amt > 0) {
+		if (amt <= 0) {
 			throw new InsufficientFundsException("Deposit a positive amount!");
 		} else {
 			this.balance += amt; 
